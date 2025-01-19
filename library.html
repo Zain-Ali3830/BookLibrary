@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!--Header-->
+    <h1 class="font-semibold text-3xl text-center mt-4">Books</h1>
+    <!--Header-->
+
+
+    <!--Search Bar-->
+    <div class="flex justify-center gap-4 mt-10">
+        <input  type=" text" placeholder="Search by title" class="border-[1px] rounded-lg pl-2 w-[30rem]" id="search">
+        <button class="border-[1px] rounded-lg w-24 " onclick="search()">Search</button>
+        <button class="border-[1px] rounded-lg w-24" id="clear" onclick="clear()">Clear</button>
+    </div>
+
+    <!--Search Bar-->
+
+
+
+
+    <!--Button Container-->
+    <div class="flex justify-center"><div class="flex justify-evenly items-center gap-16 mt-10 border-[1px] rounded-lg p-4 w-[70rem] bg-slate-200">
+        <button class="text-xl font-semibold border-[1px] h-16 w-40 rounded-lg bg-white" onclick="latest()">Latest</button>
+        <button onclick="popularLastMonth()">Popular Last <br> Month</button>
+        <button onclick="popularLast6Months()">Popular Last <br> 6 Months</button>
+        <button onclick="highestRatedLastMonth()">Highest Rated <br> Last Month</button>
+        <button onclick="highestRatedLast6Months()">Highest Rated <br> Last 6 Months</button>
+    </div></div>
+
+
+
+
+    <!--Data COntainer-->
+    <div id="container" class="mt-40"></div>
+    <!--Data COntainer-->
+</body>
+<script src="lib.js"></script>
+</html>
