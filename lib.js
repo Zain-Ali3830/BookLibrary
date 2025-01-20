@@ -67,12 +67,10 @@ function displayBooks(ParseData) {
     search=()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
-        console.log("data1:", data1);
         let container=document.getElementById("container");
-        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
-        if(input.innerHTML==""){
+        if(input.value==""){
             alert("Please enter a valid input");
             return
         }
@@ -129,17 +127,14 @@ function displayBooks(ParseData) {
         container.append(res);
     });
 
-    console.log("Books rated today:", newArray);
 
     search=()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
-        console.log("data1:", data1);
         let container=document.getElementById("container");
-        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
-        if(input.innerHTML==""){
+        if(input.value==""){
             alert("Please enter a valid input");
             return
         }
@@ -200,12 +195,10 @@ popularLastMonth=()=>{
     search=()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
-        console.log("data1:", data1);
         let container=document.getElementById("container");
-        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
-        if(input.innerHTML==""){
+        if(input.value==""){
             alert("Please enter a valid input");
             return
         }
@@ -245,11 +238,9 @@ popularLastMonth=()=>{
 
 popularLast6Months=()=>{
     let container=document.getElementById('container');
-    container.innerHTML="";
     let data=localStorage.getItem('MainData')
     let data1=JSON.parse(data)
     let data2=data1.slice(25,36);
-    console.log(data1)
     data2.forEach(item=>{
         let div=document.createElement('div');
         div.style.border="1px solid"
@@ -274,18 +265,15 @@ popularLast6Months=()=>{
     search=()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
-        console.log("data1:", data1);
         let container=document.getElementById("container");
-        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
-        if(input.innerHTML==""){
+        if(input.value==""){
             alert("Please enter a valid input");
             return
         }
         data1.forEach(item=>{
             if(item.title.toLowerCase()===input.value.toLowerCase()){
-                container.innerHTML="";
                 div.style.border = "1px solid";
                 div.style.padding = "10px";
                 div.style.margin = "10px";
@@ -317,11 +305,9 @@ popularLast6Months=()=>{
 
 highestRatedLastMonth=()=>{
     let container=document.getElementById('container');
-    container.innerHTML="";
     let data=localStorage.getItem('MainData')
     let data1=JSON.parse(data)
     let data2=data1.slice(20,26);
-    console.log(data1)
     data2.forEach(item=>{
         let div=document.createElement('div');
         div.style.border="1px solid"
@@ -346,12 +332,10 @@ highestRatedLastMonth=()=>{
     search=()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
-        console.log("data1:", data1);
         let container=document.getElementById("container");
-        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
-        if(input.innerHTML==""){
+        if(input.value==""){
             alert("Please enter a valid input");
             return
         }
@@ -389,11 +373,9 @@ highestRatedLastMonth=()=>{
 
 highestRatedLast6Months=()=>{
     let container=document.getElementById('container');
-    container.innerHTML="";
     let data=localStorage.getItem('MainData')
     let data1=JSON.parse(data)
     let data2=data1.slice(20,31 );
-    console.log(data1)
     data2.forEach(item=>{
         let div=document.createElement('div');
         div.style.border="1px solid"
@@ -420,12 +402,10 @@ highestRatedLast6Months=()=>{
     search=()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
-        console.log("data1:", data1);
         let container=document.getElementById("container");
-        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
-        if(input.innerHTML==""){
+        if(input.value==""){
             alert("Please enter a valid input")
             return
         }
@@ -458,7 +438,6 @@ highestRatedLast6Months=()=>{
 
 let clear=document.getElementById("clear");
 clear.addEventListener("click",()=>{
-    let input=document.getElementById("search");
-    console.log("Clearing...")              
+    let input=document.getElementById("search");            
     input.value=""
 })
