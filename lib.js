@@ -2,7 +2,7 @@
 let array = [];
 let obj;
 
-
+function show(){
 let localData = localStorage.getItem("MainData");
 if (localData) {
     let ParseData = JSON.parse(localData);
@@ -98,7 +98,7 @@ function displayBooks(ParseData) {
     }
 }
 
-
+}
                     // Latest 
  latest = () => {
     container.innerHTML = "";
@@ -435,9 +435,18 @@ highestRatedLast6Months=()=>{
 
 
 
-
+//                Clear
 let clear=document.getElementById("clear");
 clear.addEventListener("click",()=>{
     let input=document.getElementById("search");            
     input.value=""
 })
+
+//                Main
+let main=document.getElementById('main')
+main.addEventListener('click',()=>{
+    let container=document.getElementById('container');
+    container.innerHTML="";
+    show();
+})
+show();      
