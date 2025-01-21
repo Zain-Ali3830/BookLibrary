@@ -63,11 +63,13 @@ function displayBooks(ParseData) {
         })
     })
 
-
-    search=()=>{
+let btn=document.getElementById('search');
+    btn.addEventListener('keyup',()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
+        console.log("data1:", data1);
         let container=document.getElementById("container");
+        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
         if(input.value==""){
@@ -96,9 +98,10 @@ function displayBooks(ParseData) {
         })
 
     }
+)}
 }
 
-}
+
                     // Latest 
  latest = () => {
     container.innerHTML = "";
@@ -127,11 +130,15 @@ function displayBooks(ParseData) {
         container.append(res);
     });
 
+    console.log("Books rated today:", newArray);
 
-    search=()=>{
+    let btn=document.getElementById('search');
+    btn.addEventListener('keyup',()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
+        console.log("data1:", data1);
         let container=document.getElementById("container");
+        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
         if(input.value==""){
@@ -160,7 +167,7 @@ function displayBooks(ParseData) {
         })
 
     }
- };
+)}
 
 
 // Popular Last Month :
@@ -192,10 +199,13 @@ popularLastMonth=()=>{
 
 
 
-    search=()=>{
+    let btn=document.getElementById('search');
+    btn.addEventListener('keyup',()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
+        console.log("data1:", data1);
         let container=document.getElementById("container");
+        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
         if(input.value==""){
@@ -224,11 +234,7 @@ popularLastMonth=()=>{
         })
 
     }
-
-
-
-
-}
+)}
 
 
 
@@ -238,9 +244,11 @@ popularLastMonth=()=>{
 
 popularLast6Months=()=>{
     let container=document.getElementById('container');
+    container.innerHTML="";
     let data=localStorage.getItem('MainData')
     let data1=JSON.parse(data)
-    let data2=data1.slice(15,36);
+    let data2=data1.slice(25,36);
+    console.log(data1)
     data2.forEach(item=>{
         let div=document.createElement('div');
         div.style.border="1px solid"
@@ -262,10 +270,13 @@ popularLast6Months=()=>{
 
 
 
-    search=()=>{
+    let btn=document.getElementById('search');
+    btn.addEventListener('keyup',()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
+        console.log("data1:", data1);
         let container=document.getElementById("container");
+        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
         if(input.value==""){
@@ -274,6 +285,7 @@ popularLast6Months=()=>{
         }
         data1.forEach(item=>{
             if(item.title.toLowerCase()===input.value.toLowerCase()){
+                container.innerHTML="";
                 div.style.border = "1px solid";
                 div.style.padding = "10px";
                 div.style.margin = "10px";
@@ -293,11 +305,7 @@ popularLast6Months=()=>{
         })
 
     }
-    
-
-
-
-}
+)}
 
 
 
@@ -305,9 +313,11 @@ popularLast6Months=()=>{
 
 highestRatedLastMonth=()=>{
     let container=document.getElementById('container');
+    container.innerHTML="";
     let data=localStorage.getItem('MainData')
     let data1=JSON.parse(data)
     let data2=data1.slice(20,26);
+    console.log(data1)
     data2.forEach(item=>{
         let div=document.createElement('div');
         div.style.border="1px solid"
@@ -329,10 +339,13 @@ highestRatedLastMonth=()=>{
 
 
 
-    search=()=>{
+    let btn=document.getElementById('search');
+    btn.addEventListener('keyup',()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
+        console.log("data1:", data1);
         let container=document.getElementById("container");
+        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
         if(input.value==""){
@@ -361,11 +374,7 @@ highestRatedLastMonth=()=>{
         })
 
     }
-
-
-
-
-}
+)}
 
 
 
@@ -373,9 +382,11 @@ highestRatedLastMonth=()=>{
 
 highestRatedLast6Months=()=>{
     let container=document.getElementById('container');
+    container.innerHTML="";
     let data=localStorage.getItem('MainData')
     let data1=JSON.parse(data)
-    let data2=data1.slice(20,31 );
+    let data2=data1.slice(15,31 );
+    console.log(data1)
     data2.forEach(item=>{
         let div=document.createElement('div');
         div.style.border="1px solid"
@@ -399,14 +410,17 @@ highestRatedLast6Months=()=>{
 
 
     
-    search=()=>{
+    let btn=document.getElementById('search');
+    btn.addEventListener('keyup',()=>{
         let local=localStorage.getItem('MainData');
         let data1=JSON.parse(local);
+        console.log("data1:", data1);
         let container=document.getElementById("container");
+        console.log("Searching...")
         let div=document.createElement("div");
         let input=document.getElementById("search");
         if(input.value==""){
-            alert("Please enter a valid input")
+            alert("Please enter a valid input");
             return
         }
         data1.forEach(item=>{
@@ -431,22 +445,27 @@ highestRatedLast6Months=()=>{
         })
 
     }
-}
+)}
 
 
 
-//                Clear
+
+
 let clear=document.getElementById("clear");
 clear.addEventListener("click",()=>{
-    let input=document.getElementById("search");            
+    let input=document.getElementById("search");
+    console.log("Clearing...")              
     input.value=""
 })
 
-//                Main
-let main=document.getElementById('main')
+
+
+
+
+let main=document.getElementById("main");
 main.addEventListener('click',()=>{
     let container=document.getElementById('container');
     container.innerHTML="";
     show();
 })
-show();      
+show();
