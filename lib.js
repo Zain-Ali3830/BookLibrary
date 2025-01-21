@@ -62,44 +62,44 @@ function displayBooks(ParseData) {
             localStorage.setItem('MainData', JSON.stringify(updatedData));
         })
     })
-
-let btn=document.getElementById('search');
-    btn.addEventListener('keyup',()=>{
-        let local=localStorage.getItem('MainData');
-        let data1=JSON.parse(local);
-        console.log("data1:", data1);
-        let container=document.getElementById("container");
-        console.log("Searching...")
-        let div=document.createElement("div");
-        let input=document.getElementById("search");
-        if(input.value==""){
-            alert("Please enter a valid input");
-            return
-        }
-        data1.forEach(item=>{
-            if(item.title.toLowerCase()===input.value.toLowerCase()){
-                container.innerHTML="";
-                div.style.border = "1px solid";
-                div.style.padding = "10px";
-                div.style.margin = "10px";
-                div.style.borderRadius = "10px";
-                div.style.marginTop = "10px";
-                div.innerHTML=`<h1><b>Book ID:</b>${item.id}</h1><h1><b>Title:</b>${item.title}</h1>
-                <h1><b>Author:</b>${item.author}</h1>`
-                let btn=document.createElement('button');
-                btn.innerHTML=`<h1><b>Ratings:</b> ${item.ratings.toFixed(1)}</h1>`
-                btn.style.border="1px solid"    
-                btn.style.borderRadius="7px"
-                btn.style.width="125px"
-                div.append(btn);
-
-                container.append(div);
-            }
-        })
-
-    }
-)}
 }
+search();
+}
+
+//                                       Search
+
+function search(){
+    let btn=document.getElementById('search');
+        btn.addEventListener('keyup',()=>{
+            let local=localStorage.getItem('MainData');
+            let data1=JSON.parse(local);
+            let container=document.getElementById("container");
+            let div=document.createElement("div");
+            let input=document.getElementById("search");
+            data1.forEach(item=>{
+                if(item.title.toLowerCase()===input.value.toLowerCase()){
+                    container.innerHTML="";
+                    div.style.border = "1px solid";
+                    div.style.padding = "10px";
+                    div.style.margin = "10px";
+                    div.style.borderRadius = "10px";
+                    div.style.marginTop = "10px";
+                    div.innerHTML=`<h1><b>Book ID:</b>${item.id}</h1><h1><b>Title:</b>${item.title}</h1>
+                    <h1><b>Author:</b>${item.author}</h1>`
+                    let btn=document.createElement('button');
+                    btn.innerHTML=`<h1><b>Ratings:</b> ${item.ratings.toFixed(1)}</h1>`
+                    btn.style.border="1px solid"    
+                    btn.style.borderRadius="7px"
+                    btn.style.width="125px"
+                    div.append(btn);
+    
+                    container.append(div);
+                }
+            })
+    
+        }
+    )}
+    
 
 
                     // Latest 
@@ -129,45 +129,8 @@ let btn=document.getElementById('search');
 
         container.append(res);
     });
-
-    console.log("Books rated today:", newArray);
-
-    let btn=document.getElementById('search');
-    btn.addEventListener('keyup',()=>{
-        let local=localStorage.getItem('MainData');
-        let data1=JSON.parse(local);
-        console.log("data1:", data1);
-        let container=document.getElementById("container");
-        console.log("Searching...")
-        let div=document.createElement("div");
-        let input=document.getElementById("search");
-        if(input.value==""){
-            alert("Please enter a valid input");
-            return
-        }
-        data1.forEach(item=>{
-            if(item.title.toLowerCase()===input.value.toLowerCase()){
-                container.innerHTML="";
-                div.style.border = "1px solid";
-                div.style.padding = "10px";
-                div.style.margin = "10px";
-                div.style.borderRadius = "10px";
-                div.style.marginTop = "10px";
-                div.innerHTML=`<h1><b>Book ID:</b>${item.id}</h1><h1><b>Title:</b>${item.title}</h1>
-                <h1><b>Author:</b>${item.author}</h1>`
-                let btn=document.createElement('button');
-                btn.innerHTML=`<h1><b>Ratings:</b> ${item.ratings.toFixed(1)}</h1>`
-                btn.style.border="1px solid"    
-                btn.style.borderRadius="7px"
-                btn.style.width="125px"
-                div.append(btn);
-
-                container.append(div);
-            }
-        })
-
-    }
-)}
+search();
+}
 
 
 // Popular Last Month :
@@ -196,45 +159,9 @@ popularLastMonth=()=>{
 
          container.append(div)
     })
-
-
-
-    let btn=document.getElementById('search');
-    btn.addEventListener('keyup',()=>{
-        let local=localStorage.getItem('MainData');
-        let data1=JSON.parse(local);
-        console.log("data1:", data1);
-        let container=document.getElementById("container");
-        console.log("Searching...")
-        let div=document.createElement("div");
-        let input=document.getElementById("search");
-        if(input.value==""){
-            alert("Please enter a valid input");
-            return
-        }
-        data1.forEach(item=>{
-            if(item.title.toLowerCase()===input.value.toLowerCase()){
-                container.innerHTML="";
-                div.style.border = "1px solid";
-                div.style.padding = "10px";
-                div.style.margin = "10px";
-                div.style.borderRadius = "10px";
-                div.style.marginTop = "10px";
-                div.innerHTML=`<h1><b>Book ID:</b>${item.id}</h1><h1><b>Title:</b>${item.title}</h1>
-                <h1><b>Author:</b>${item.author}</h1>`
-                let btn=document.createElement('button');
-                btn.innerHTML=`<h1><b>Ratings:</b> ${item.ratings.toFixed(1)}</h1>`
-                btn.style.border="1px solid"    
-                btn.style.borderRadius="7px"
-                btn.style.width="125px"
-                div.append(btn);
-
-                container.append(div);
-            }
-        })
+search();
 
     }
-)}
 
 
 
@@ -268,44 +195,9 @@ popularLast6Months=()=>{
          container.append(div)
     })
 
-
-
-    let btn=document.getElementById('search');
-    btn.addEventListener('keyup',()=>{
-        let local=localStorage.getItem('MainData');
-        let data1=JSON.parse(local);
-        console.log("data1:", data1);
-        let container=document.getElementById("container");
-        console.log("Searching...")
-        let div=document.createElement("div");
-        let input=document.getElementById("search");
-        if(input.value==""){
-            alert("Please enter a valid input");
-            return
-        }
-        data1.forEach(item=>{
-            if(item.title.toLowerCase()===input.value.toLowerCase()){
-                container.innerHTML="";
-                div.style.border = "1px solid";
-                div.style.padding = "10px";
-                div.style.margin = "10px";
-                div.style.borderRadius = "10px";
-                div.style.marginTop = "10px";
-                div.innerHTML=`<h1><b>Book ID:</b>${item.id}</h1><h1><b>Title:</b>${item.title}</h1>
-                <h1><b>Author:</b>${item.author}</h1>`
-                let btn=document.createElement('button');
-                btn.innerHTML=`<h1><b>Ratings:</b> ${item.ratings.toFixed(1)}</h1>`
-                btn.style.border="1px solid"    
-                btn.style.borderRadius="7px"
-                btn.style.width="125px"
-                div.append(btn);
-
-                container.append(div);
-            }
-        })
+    search();
 
     }
-)}
 
 
 
@@ -336,45 +228,9 @@ highestRatedLastMonth=()=>{
 
          container.append(div)
     })
-
-
-
-    let btn=document.getElementById('search');
-    btn.addEventListener('keyup',()=>{
-        let local=localStorage.getItem('MainData');
-        let data1=JSON.parse(local);
-        console.log("data1:", data1);
-        let container=document.getElementById("container");
-        console.log("Searching...")
-        let div=document.createElement("div");
-        let input=document.getElementById("search");
-        if(input.value==""){
-            alert("Please enter a valid input");
-            return
-        }
-        data1.forEach(item=>{
-            if(item.title.toLowerCase()===input.value.toLowerCase()){
-                container.innerHTML="";
-                div.style.border = "1px solid";
-                div.style.padding = "10px";
-                div.style.margin = "10px";
-                div.style.borderRadius = "10px";
-                div.style.marginTop = "10px";
-                div.innerHTML=`<h1><b>Book ID:</b>${item.id}</h1><h1><b>Title:</b>${item.title}</h1>
-                <h1><b>Author:</b>${item.author}</h1>`
-                let btn=document.createElement('button');
-                btn.innerHTML=`<h1><b>Ratings:</b> ${item.ratings.toFixed(1)}</h1>`
-                btn.style.border="1px solid"    
-                btn.style.borderRadius="7px"
-                btn.style.width="125px"
-                div.append(btn);
-
-                container.append(div);
-            }
-        })
+    search();
 
     }
-)}
 
 
 
@@ -405,52 +261,13 @@ highestRatedLast6Months=()=>{
 
          container.append(div)
     })
-
-
-
-
-    
-    let btn=document.getElementById('search');
-    btn.addEventListener('keyup',()=>{
-        let local=localStorage.getItem('MainData');
-        let data1=JSON.parse(local);
-        console.log("data1:", data1);
-        let container=document.getElementById("container");
-        console.log("Searching...")
-        let div=document.createElement("div");
-        let input=document.getElementById("search");
-        if(input.value==""){
-            alert("Please enter a valid input");
-            return
-        }
-        data1.forEach(item=>{
-            if(item.title.toLowerCase()===input.value.toLowerCase()){
-                container.innerHTML="";
-                div.style.border = "1px solid";
-                div.style.padding = "10px";
-                div.style.margin = "10px";
-                div.style.borderRadius = "10px";
-                div.style.marginTop = "10px";
-                div.innerHTML=`<h1><b>Book ID:</b>${item.id}</h1><h1><b>Title:</b>${item.title}</h1>
-                <h1><b>Author:</b>${item.author}</h1>`
-                let btn=document.createElement('button');
-                btn.innerHTML=`<h1><b>Ratings:</b> ${item.ratings.toFixed(1)}</h1>`
-                btn.style.border="1px solid"    
-                btn.style.borderRadius="7px"
-                btn.style.width="125px"
-                div.append(btn);
-
-                container.append(div);
-            }
-        })
-
+search();
     }
-)}
 
 
 
 
-
+//                                        Clear
 let clear=document.getElementById("clear");
 clear.addEventListener("click",()=>{
     let input=document.getElementById("search");
@@ -459,9 +276,7 @@ clear.addEventListener("click",()=>{
 })
 
 
-
-
-
+//                                        Main
 let main=document.getElementById("main");
 main.addEventListener('click',()=>{
     let container=document.getElementById('container');
