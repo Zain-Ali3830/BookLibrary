@@ -240,7 +240,7 @@ popularLast6Months=()=>{
     let container=document.getElementById('container');
     let data=localStorage.getItem('MainData')
     let data1=JSON.parse(data)
-    let data2=data1.slice(25,36);
+    let data2=data1.slice(15,36);
     data2.forEach(item=>{
         let div=document.createElement('div');
         div.style.border="1px solid"
